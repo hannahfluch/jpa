@@ -170,7 +170,7 @@ List<Customer> findCustomersWithRentalsAbove( BigDecimal price);
 
 	// for projections (where you select a specific field from the return value):
 	@Query("""
-		select new spengergasse.Projection(...)
+		select new spengergasse.Projection(s.firstname, s.grade)
 		from Student s
 		""")
 		public Projection projectionFromStudent()
