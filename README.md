@@ -1,5 +1,18 @@
 # JPA ORM Mapping
 
+## Codebase Structure
+```
+main/…/domain -> User.java
+main/…/richtypes -> Port.java
+main/…/foundation -> DataConstraintViolationException.java
+main/…/persistence -> UserRepository.java
+main/…/persistence/converters -> PortConverter.java
+
+test/…/richtypes -> PortTest.java
+test/…/persistence -> UserRepositoryTest.java
+test/…/persistence/converters -> PortConverterTest.java
+```
+
 ## Testing
 
 We use JUnit Jupiter for unit testing. Mind the following testing slices for Spring-based tests @DataJpaTest,
@@ -114,6 +127,21 @@ OR (for composite uniques):
 	{ "personNumber", "isActive" }) // field-names
 	})
 class MyCoolTable { ... }
+```
+
+### Richtype Validation
+For cases where the richtype logic can be expressed using only an annotation, a validator can be used for the tests.
+
+```java
+private @Autowired Validator validator;
+```
+
+```java
+var email = new Email("hannah@diefluchs.at");
+
+Set<ConstraintViolation<Email>> violations = validator.validate(email);
+
+assertTrue(violations.isEmpty());
 ```
 
 ### Exceptions
