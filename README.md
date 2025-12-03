@@ -535,7 +535,7 @@ public class Rental {
 	public record RentalId(@GeneratedValue Long id) implements Serializable {}
 	private @EmbeddedId RentalId id;
 	...
-	@ManyToOne(cascade = CascadeType.PERSIST) // mind the cascade type
+	@ManyToOne // mind the lack cascade type (only on owning side)
 	@JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "FK_rental_customer"))
 	private @NotNull Customer customer;
 	...
