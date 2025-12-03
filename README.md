@@ -133,7 +133,7 @@ class MyCoolTable { ... }
 For cases where the richtype logic can be expressed using only an annotation, a validator can be used for the tests.
 
 ```java
-private @Autowired Validator validator;
+private final Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
 ```
 
 ```java
