@@ -415,7 +415,7 @@ public class Movie extends Medium {
 ```
 
 #### Table-Per-Class
-Table per class inheritance allows inheritance to be used in the object model, when it does not exist in the data model. In table per class inheritance a table is defined for _each_ concrete class in the inheritance hierarchy to store _all_ the attributes of that class and _all_ of its superclasses. This is like a roll-down.
+Table per class inheritance allows inheritance to be used in the object model, when it does not exist in the data model. Nevertheless, the parent-class CAN still exist as an entity (if non-abstract). In table per class inheritance a table is defined for _each_ concrete class in the inheritance hierarchy to store _all_ the attributes of that class and _all_ of its superclasses.
 ```java
 @Entity
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
@@ -447,7 +447,7 @@ LARGEPROJECT:
 | --- | ---------- | ------ |
 | 1   | Accounting | 5000   |
 #### Mapped Superclass
-Mapped superclass inheritance also allows inheritance to be used in the object model, when it does not exist in the data model. It is similar to table per class inheritance, but does not allow querying, persisting, or relationships to the superclass.
+Mapped superclass inheritance also allows inheritance to be used in the object model, when it does not exist in the data model. It is similar to table per class inheritance, but does not allow querying, persisting, or relationships to the superclass. This is like a roll-down.
 ```java
 @MappedSuperclass
 public abstract class Project {
