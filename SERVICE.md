@@ -177,3 +177,7 @@ void cant_create_duplicate_artist() {
     verify(artistRepository, never()).save(any());
 }
 ```
+
+## Performance
+
+Use `.forEach` instead of normal for-loops.
